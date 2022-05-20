@@ -37,7 +37,7 @@
   color: #8e8ea0;
   opacity: 1;
 }
-.main input[type="submit"] {
+.main #button {
   padding: 12px 0;
   color: #fff;
   background-color: #1061a3;
