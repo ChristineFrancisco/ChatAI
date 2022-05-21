@@ -13,21 +13,36 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<div>
-			<main class="main">
+		<div class="wrapper">
+			<header>
+				<img src="" alt="logo">
+			</header>
+			<main class="form">
 				<div class="top-headers">
-					<h3>Having fun with AI!</h3>
-					<h4>Your promt:</h4>
+					<h3>Having fun with an AI!</h3>
 				</div>
 				<form>
-					<textarea id="prompt" name="" id="" cols="30" rows="10" placeholder="Enter your prompt here"></textarea>
-					<!-- <input id = "prompt" type="text" name="prompt" placeholder="Enter a prompt" value=""/> -->
-					<br>
+					<h4>Write your prompt here:</h4>
+
+					<textarea id="prompt" name="" cols="30" rows="10" placeholder="Enter your prompt here"></textarea>
+					
+					<h4>Choose your engine:</h4>
+
+					<select id="engine" name="engine">
+						<option value="text-ada-001">Ada</option>
+						<option value="text-babbage-001">Babbage</option>
+						<option value="text-curie-001">Curie</option>
+						<option value="text-davinci-002">Davinci</option>
+					</select>
+					
 					<input id="button" type="button" value="Submit" />
 				</form>
-				<div class="result"></div>
 			</main>
-		</div>
+			<div class="chat">
+				<div id="container"></div>
+			</div>
+			<footer></footer>
+		</div>		
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>

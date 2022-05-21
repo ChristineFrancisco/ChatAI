@@ -1,43 +1,53 @@
-
-.main,
-.main input {
+html { 
   font-size: 16px;
+  padding: 10rem;
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+}
+
+.wrapper {
+  display: flex;  
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center; 
+}
+
+.form,
+.form input {
+  font-size: 1rem;
   line-height: 24px;
   color: #353740;
   font-family: "ColfaxAI", Helvetica, sans-serif;
 }
-.main {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: left;
   padding-top: 60px;
 }
-.main .icon {
+.form .icon {
   width: 34px;
 }
-.main h3 {
-  font-size: 32px;
+.form h3 {
+  font-size: 2rem;
   line-height: 40px;
   font-weight: bold;
   color: #202123;
   margin: 16px 0 40px;
 }
-.main form {
+.form form {
   display: flex;
   flex-direction: column;
   width: 320px;
 }
-.main input[type="text"] {
-  padding: 12px 16px;
-  border: 1px solid #10a37f;
-  border-radius: 4px;
-  margin-bottom: 24px;
+.form *{
+  margin: 12px 0px;
 }
-.main ::placeholder {
-  color: #8e8ea0;
+.form ::placeholder {
+  color: #92929f;
   opacity: 1;
 }
-.main #button {
+.form #button {
   padding: 12px 0;
   color: #fff;
   background-color: #1061a3;
@@ -46,7 +56,21 @@
   text-align: center;
   cursor: pointer;
 }
-.main .result {
+.form #button:hover{
+  background-color: #62829b;
+}
+.form .result {
   font-weight: bold;
   margin-top: 40px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#container div {
+  margin: 24px 40px;
+  padding: 12px 24px;
+  background: #d2d2d7;
 }
