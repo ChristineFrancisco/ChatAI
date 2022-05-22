@@ -44,7 +44,7 @@ function getFetch(){
         method: "POST",
         headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${"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"}`,
+        Authorization: `Bearer ${"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"}`,
         },
         body: JSON.stringify(data),
     })
