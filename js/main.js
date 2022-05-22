@@ -1,28 +1,33 @@
 let storageArray = []
 
-//searches local storage and pushes out divs if there is existing data
+//searches local storage for data 
 if(localStorage.getItem('storage')) {
     //might change later to make it more efficient? same variable as below
     storageArray = JSON.parse(localStorage.getItem('storage'))
     loadStorage()
 } 
 
+//recreates divs on page load if there is existing data in local storage
 function loadStorage(){
-    let existingData = JSON.parse(localStorage.getItem('storage'))
-    if(existingData.length > 0) {
-        existingData.forEach(x => makeResponse(x))
+    if(storageArray.length > 0) {
+        storageArray.forEach(x => makeResponse(x))
     }
 }
 
 //button functionality
 document.querySelector("#button").addEventListener('click', getFetchAi)
+document.querySelector("#clear-chat").addEventListener('click', clearLocalStorage)
 
 //creates divs with prompts and responses
 function makeResponse(text){
     let newDiv = document.createElement("div")
+    newDiv.classList.add('appended-div');
     newDiv.appendChild(document.createTextNode(text)),
         addingTo = document.getElementById("container")
     addingTo.appendChild(newDiv)
+
+    //clears the value of the prompt text box
+    document.getElementById("prompt").value = ""
 }
 
 function getFetchAi(){
@@ -65,4 +70,14 @@ function getFetchAi(){
                     localStorage.setItem('storage', JSON.stringify(storageArray))
                 })
        })
+}
+
+//removes the divs on the DOM and then removes local storage
+function clearLocalStorage() {
+    let appendedDivs = document.getElementsByClassName('appended-div');
+
+    while(appendedDivs[0]) {
+        appendedDivs[0].parentNode.removeChild(appendedDivs[0]);
+    }
+    window.localStorage.clear();
 }

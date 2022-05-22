@@ -41,7 +41,8 @@ header {
   flex-direction: column;
   align-items: center;
   text-align: left;
-  padding-top: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .form .icon {
   width: 34px;
@@ -51,7 +52,7 @@ header {
   line-height: 40px;
   font-weight: bold;
   color: #202123;
-  margin: 16px 0 40px;
+  margin: 8px 0 8px;
 }
 .form form {
   display: flex;
@@ -96,4 +97,18 @@ header {
   padding: 12px 24px;
   background: #d2d2d7;
   border-radius: 4px;
+}
+#clear-chat {
+  padding: 12px 0;
+  color: #fff;
+  background-color: #1061a3;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  width: 150px;
+  margin-left: auto;
+}
+#clear-chat:hover{
+  background-color: #62829b;
 }
