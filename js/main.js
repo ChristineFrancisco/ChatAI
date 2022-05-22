@@ -27,6 +27,9 @@ function makeResponse(text){
 
 //uses the fetch API from openai
 function getFetch(){
+    const apiKey = process.env.APIKEY
+    const apiSecret = process.env.REACT_APP_APISecret
+
     let engine = document.getElementById("engine").value
     let promptFromUser = document.getElementById("prompt").value
     let newResponse
@@ -44,7 +47,7 @@ function getFetch(){
         method: "POST",
         headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${"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"}`,
+        Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify(data),
     })

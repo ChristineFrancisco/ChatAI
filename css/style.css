@@ -1,8 +1,6 @@
 /* overall font sizes */
 html { 
   font-size: 16px;
-  padding-left: 2rem;
-  padding-right: 2rem;
   font-family: "ColfaxAI", Helvetica, sans-serif;
 }
 /* * { */
@@ -20,6 +18,8 @@ html {
   display: flex;  
   justify-content: center;
   flex-flow: row;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 /* other components */
 header {
@@ -28,6 +28,7 @@ header {
   align-items: center;
   justify-content: center;
   height: 4rem;
+  background-color: rgb(72, 159, 248);
 }
 .form,
 .form input {
@@ -88,11 +89,12 @@ header {
   flex:3;
   flex-direction: column-reverse;
   padding: 4rem;
+  height: 100%;
+  overflow-y: scroll;
 }
 #container div {
   margin: 12px 40px;
   padding: 12px 24px;
   background: #d2d2d7;
   border-radius: 4px;
-  overflow-y:scroll;
 }
