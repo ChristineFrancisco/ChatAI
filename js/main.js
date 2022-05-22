@@ -1,5 +1,6 @@
-let storageArray
+let storageArray = []
 
+//searches local storage and pushes out divs if there is existing data
 if(localStorage.getItem('storage')) {
     //might change later to make it more efficient? same variable as below
     storageArray = JSON.parse(localStorage.getItem('storage'))
@@ -13,6 +14,7 @@ function loadStorage(){
     }
 }
 
+//button functionality
 document.querySelector("#button").addEventListener('click', getFetch)
 
 //creates divs with prompts and responses
@@ -42,7 +44,7 @@ function getFetch(){
         method: "POST",
         headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${"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"}`,
+        Authorization: `Bearer ${"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"}`,
         },
         body: JSON.stringify(data),
     })
@@ -54,6 +56,5 @@ function getFetch(){
             makeResponse(newResponse)
             storageArray.push(newResponse)
             localStorage.setItem('storage', JSON.stringify(storageArray))
-            // console.log(storageArray)
         })
 }
