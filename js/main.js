@@ -15,7 +15,7 @@ function loadStorage(){
 }
 
 //button functionality
-document.querySelector("#button").addEventListener('click', getFetch)
+document.querySelector("#button").addEventListener('click', getFetchAi)
 
 //creates divs with prompts and responses
 function makeResponse(text){
@@ -25,11 +25,7 @@ function makeResponse(text){
     addingTo.appendChild(newDiv)
 }
 
-//uses the fetch API from openai
-function getFetch(){
-    const apiKey = process.env.APIKEY
-    const apiSecret = process.env.REACT_APP_APISecret
-
+function getFetchAi(){
     let engine = document.getElementById("engine").value
     let promptFromUser = document.getElementById("prompt").value
     let newResponse
@@ -42,22 +38,31 @@ function getFetch(){
         frequency_penalty: 0.0,
         presence_penalty: 0.0,
        };
-
-    fetch(`https://api.openai.com/v1/engines/${engine}/completions`, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify(data),
-    })
-        .then(response => response.json())
-        .then(newData => {
-            newResponse = `Prompt: ${promptFromUser} 
-            
-            Response: ${newData.choices[0].text}`
-            makeResponse(newResponse)
-            storageArray.push(newResponse)
-            localStorage.setItem('storage', JSON.stringify(storageArray))
-        })
+    //first fetches the API key from firebase
+    fetch("https://chatapi-7fb64-default-rtdb.firebaseio.com/key.json")
+       .then(response => response.json())
+       .then(data => {
+           apikey = data
+           console.log(apikey)
+       })
+       //then calls the openAI API using that key
+       .then (x => {
+            fetch(`https://api.openai.com/v1/engines/${engine}/completions`, {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${apikey}`,
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => response.json())
+                .then(newData => {
+                    newResponse = `Prompt: ${promptFromUser} 
+                    \n
+                    Response: ${newData.choices[0].text}`
+                    makeResponse(newResponse)
+                    storageArray.push(newResponse)
+                    localStorage.setItem('storage', JSON.stringify(storageArray))
+                })
+       })
 }
