@@ -20,6 +20,7 @@ html {
   flex-flow: row;
   padding-left: 2rem;
   padding-right: 2rem;
+  overflow:auto
 }
 /* other components */
 header {
@@ -47,7 +48,7 @@ header {
 .form .icon {
   width: 34px;
 }
-.form h3 {
+h3 {
   font-size: 2rem;
   line-height: 40px;
   font-weight: bold;
@@ -85,18 +86,33 @@ header {
   margin-top: 40px;
 }
 /* containers for appended divs */
+.chat {
+  width: 100%;
+}
 #container {
   display: flex;
   flex:3;
   flex-direction: column-reverse;
   padding: 4rem;
   overflow-y: scroll;
+  max-height: 62vh;
 }
 #container div {
   margin: 12px 40px;
   padding: 12px 24px;
   background: #d2d2d7;
   border-radius: 4px;
+}
+#container #chat-title {
+  text-align: center;
+  border-bottom: solid 1px grey;
+}
+#container #chat-title h2{
+  font-size: 2rem;
+  line-height: 40px;
+  font-weight: bold;
+  color: #202123;
+  margin: 8px 0 8px;
 }
 #clear-chat {
   padding: 12px 0;

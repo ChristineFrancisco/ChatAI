@@ -8,16 +8,15 @@
 		
 		<title>OpenAI Prompt Response Generator</title>
 
-		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<div class="wrapper1">
+		<section class="wrapper1">
 			<header>
 				<img src="images/cover.png" alt="ChatAI logo" width="100px">
 			</header>
-			<div class="wrapper2">
+			<section class="wrapper2">
 				<main class="form">
 					<div class="top-headers">
 						<h3>Having fun with AI!</h3>
@@ -34,20 +33,23 @@
 							<option value="text-ada-001">Ada</option>
 							<option value="text-babbage-001">Babbage</option>
 							<option value="text-curie-001">Curie</option>
-							<option value="text-davinci-002">Davinci</option>
+							<option value="text-davinci-002">DaVinci</option>
 						</select>
 						
-						<input id="button" type="button" value="Submit" />
+						<input id="button" type="button" value="Submit Prompt" />
 					</form>
 				</main>
-				<div class="chat">
-					<div id="container">
-						<button id="clear-chat" class="hidden" >Clear Chat</button>
+				<section class="chat">
+					<div id="chat-title">
+						<h2>Chat History:</h2>
 					</div>
-				</div>
-			</div>
+					<div id="container">
+						<button id="clear-chat" class="hidden">Clear Chat</button>
+					</div>
+				</section>
+			</section>
 			<footer></footer>
-		</div>		
+		</section>		
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>

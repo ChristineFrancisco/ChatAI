@@ -16,7 +16,6 @@ function loadStorage(){
 }
 
 //button functionality
-//checks if there are any divs
 document.querySelector("#button").addEventListener('click', getFetchAi)
 document.querySelector("#clear-chat").addEventListener('click', clearLocalStorage)
 
@@ -40,6 +39,18 @@ function makeResponse(text){
 
 function getFetchAi(){
     let engine = document.getElementById("engine").value
+    let engineName
+    if (engine == "text-ada-001"){
+        engineName = "Ada"
+    } else if (engine == "text-babbage-001") {
+        engineName = "Babbage"
+    } else if (engine == "text-curie-001") {
+        engineName = "Curie"
+    } else if (engine == "text-davinci-002") {
+        engineName = "DaVinci"
+    } else {
+        engineName = "The Engine"
+    }
     let promptFromUser = document.getElementById("prompt").value
     let newResponse
 
@@ -65,7 +76,6 @@ function getFetchAi(){
        .then(response => response.json())
        .then(data => {
            apikey = data
-           console.log(apikey)
        })
        //then calls the openAI API using that key
        .then (x => {
@@ -81,7 +91,9 @@ function getFetchAi(){
                 .then(newData => {
                     newResponse = `Prompt: ${promptFromUser} 
                     \n
-                    Response: ${newData.choices[0].text}`
+                    \n
+                    \n
+                    ${engineName} says: ${newData.choices[0].text}`
                     makeResponse(newResponse)
                     storageArray.push(newResponse)
                     localStorage.setItem('storage', JSON.stringify(storageArray))
