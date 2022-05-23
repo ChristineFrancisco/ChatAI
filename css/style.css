@@ -112,3 +112,11 @@ header {
 #clear-chat:hover{
   background-color: #62829b;
 }
+.hidden {
+  display: none;
+}
+@media (max-width: 800px) {
+  .wrapper2 {
+    flex-flow: column;
+  }
+}

@@ -20,7 +20,7 @@
 			<div class="wrapper2">
 				<main class="form">
 					<div class="top-headers">
-						<h3>Having fun with an AI!</h3>
+						<h3>Having fun with AI!</h3>
 					</div>
 					<form>
 						<h4>Write your prompt here:</h4>
@@ -30,6 +30,7 @@
 						<h4>Choose your engine:</h4>
 
 						<select id="engine" name="engine">
+							<option disabled selected value> -- select an option -- </option>
 							<option value="text-ada-001">Ada</option>
 							<option value="text-babbage-001">Babbage</option>
 							<option value="text-curie-001">Curie</option>
@@ -41,7 +42,7 @@
 				</main>
 				<div class="chat">
 					<div id="container">
-						<button id="clear-chat" >Clear Chat</button>
+						<button id="clear-chat" class="hidden" >Clear Chat</button>
 					</div>
 				</div>
 			</div>

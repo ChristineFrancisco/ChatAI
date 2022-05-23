@@ -4,6 +4,7 @@ let storageArray = []
 if(localStorage.getItem('storage')) {
     //might change later to make it more efficient? same variable as below
     storageArray = JSON.parse(localStorage.getItem('storage'))
+    document.getElementById('clear-chat').classList.remove("hidden");
     loadStorage()
 } 
 
@@ -15,6 +16,7 @@ function loadStorage(){
 }
 
 //button functionality
+//checks if there are any divs
 document.querySelector("#button").addEventListener('click', getFetchAi)
 document.querySelector("#clear-chat").addEventListener('click', clearLocalStorage)
 
@@ -28,6 +30,12 @@ function makeResponse(text){
 
     //clears the value of the prompt text box
     document.getElementById("prompt").value = ""
+
+    //checks if 
+    const chatButton = document.getElementById("clear-chat")
+    if (chatButton.classList.contains("hidden")) {
+        chatButton.classList.remove("hidden")
+    }
 }
 
 function getFetchAi(){
@@ -35,6 +43,15 @@ function getFetchAi(){
     let promptFromUser = document.getElementById("prompt").value
     let newResponse
 
+    //checks if there is both a prompt or engine chosen first:
+    if (!engine && !promptFromUser){
+        alert("Please select an engine and write your prompt!")
+    } else if (!promptFromUser){
+        alert("Please write your prompt!")
+    } else if (!engine){
+        alert("Please select an engine!")
+    }
+    
     const data = {
         prompt: promptFromUser,
         temperature: 0.5,
@@ -80,4 +97,5 @@ function clearLocalStorage() {
         appendedDivs[0].parentNode.removeChild(appendedDivs[0]);
     }
     window.localStorage.clear();
+    document.getElementById('clear-chat').classList.add("hidden")
 }
