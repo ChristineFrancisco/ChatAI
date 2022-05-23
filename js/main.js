@@ -21,20 +21,28 @@ document.querySelector("#clear-chat").addEventListener('click', clearLocalStorag
 
 //creates divs with prompts and responses
 function makeResponse(text){
+    const chatButton = document.getElementById("clear-chat")
+    if (chatButton.classList.contains("hidden")) {
+        chatButton.classList.remove("hidden")
+    }
     let newDiv = document.createElement("div")
     newDiv.classList.add('appended-div');
     newDiv.appendChild(document.createTextNode(text)),
         addingTo = document.getElementById("container")
     addingTo.appendChild(newDiv)
 
+    let isPrompt = text.substring(0,6) == "Prompt"
+    if(isPrompt){
+        newDiv.style.background= "rgb(220, 248, 198)"
+        newDiv.style.textAlign = "right";
+
+    }else {
+        newDiv.style.background= "rgb(236, 229, 221)"
+        newDiv.style.textAlign = "left";
+    }
+
     //clears the value of the prompt text box
     document.getElementById("prompt").value = ""
-
-    //checks if 
-    const chatButton = document.getElementById("clear-chat")
-    if (chatButton.classList.contains("hidden")) {
-        chatButton.classList.remove("hidden")
-    }
 }
 
 function getFetchAi(){
@@ -89,11 +97,11 @@ function getFetchAi(){
             })
                 .then(response => response.json())
                 .then(newData => {
-                    newResponse = `Prompt: ${promptFromUser} 
-                    \n
-                    \n
-                    \n
-                    ${engineName} says: ${newData.choices[0].text}`
+                    newPrompt = `Prompt: ${promptFromUser}`
+                    makeResponse(newPrompt)
+                    storageArray.push(newPrompt)
+                    
+                    newResponse = `${engineName} says: ${newData.choices[0].text}`
                     makeResponse(newResponse)
                     storageArray.push(newResponse)
                     localStorage.setItem('storage', JSON.stringify(storageArray))
