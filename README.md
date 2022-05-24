@@ -4,7 +4,7 @@ My submission for the Shopify Frontend Internship challenge.
 
 ### A chat room to converse with OpenAI's GPT-3 AI bots.
 
-To learn more about the GPT-3 API, click <a href="https://openai.com/api/" target="blank">here</a>
+To learn more about the GPT-3 API, click <a href="https://openai.com/api/" target="_blank">here</a>.
 
 ## Tech Used: Javascript, Firebase
 
