@@ -11,7 +11,7 @@ To learn more about the GPT-3 API, click <a href="https://openai.com/api/" targe
 For this project, I focused on making a simple UI and smooth UX by adding alerts to let the user know when an input is missing from the form submission, removing the text after submission to make it easier to the next submission, and by separating the user's prompt from the API's response in the "chat history" to make it easier to follow.
 
 I also added the following functionalities:
-- The use of local storage so that when a user refreshes their page, they can still see the previous history, as well as clearing that history should they wish to.
+- The use of local storage so that when a user refreshes their page, they can still see the previous history, as well as the ability to clear that history should they wish to.
 - The ability to choose a different engine to send their prompt to, which is reflected in the "chat history".
 
 ## Optimizations
