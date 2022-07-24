@@ -1,6 +1,4 @@
-# shopifychallenge
-
-My submission for the Shopify Frontend Internship challenge.
+# ChatAI
 
 ## A chat room to converse with OpenAI's GPT-3 AI bots.
 
